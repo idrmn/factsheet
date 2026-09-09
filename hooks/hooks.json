@@ -1,0 +1,16 @@
+{
+  "description": "Downloads the factsheet binary for this platform once, then prints the project memory at session start.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
