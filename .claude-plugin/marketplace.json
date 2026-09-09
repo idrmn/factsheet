@@ -1,0 +1,12 @@
+{
+  "name": "factsheet",
+  "owner": { "name": "idrmn" },
+  "description": "factsheet: per-project memory for coding agents",
+  "plugins": [
+    {
+      "name": "factsheet",
+      "source": "./",
+      "description": "Per-project memory for coding agents: plain-text facts, injected at session start"
+    }
+  ]
+}
