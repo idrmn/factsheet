@@ -1,0 +1,14 @@
+#!/bin/sh
+# Shim on the agent's PATH: runs the binary that the SessionStart hook
+# downloaded into the plugin data directory.
+config="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+for data in "${CLAUDE_PLUGIN_DATA:-}" \
+  "${CLAUDE_CODE_PLUGIN_CACHE_DIR:+${CLAUDE_CODE_PLUGIN_CACHE_DIR%/*}/data/factsheet-factsheet}" \
+  "$config/plugins/data/factsheet-factsheet"; do
+  [ -n "$data" ] || continue
+  for bin in "$data/bin/factsheet" "$data/bin/factsheet.exe"; do
+    [ -x "$bin" ] && exec "$bin" "$@"
+  done
+done
+echo "factsheet: binary not installed yet; start a new session so the plugin can download it" >&2
+exit 1

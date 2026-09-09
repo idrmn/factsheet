@@ -1,0 +1,30 @@
+[package]
+name = "factsheet"
+version = "0.1.1"
+edition = "2024"
+rust-version = "1.85"
+description = "Per-project memory for AI agents: plain-text facts, injected at session start"
+license = "MIT"
+repository = "https://github.com/idrmn/factsheet"
+readme = "README.md"
+keywords = ["cli", "agent", "memory", "claude-code", "llm"]
+categories = ["command-line-utilities", "development-tools"]
+exclude = ["/.claude-plugin", "/.github", "/bin", "/hooks"]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+fs2 = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = { version = "0.8", default-features = false, features = ["parse"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
