@@ -1,6 +1,6 @@
 {
   "name": "factsheet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Per-project memory for AI agents: plain-text facts, injected at session start",
   "author": { "name": "idrmn" },
   "homepage": "https://github.com/idrmn/factsheet",

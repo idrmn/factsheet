@@ -36,6 +36,15 @@ agent's PATH. The `SessionStart` hook is part of the plugin: do not add it to
 `settings.json`. If the memory does not appear, run `/hooks` in a session and
 look for the plugin hook and its error.
 
+The plugin carries two hooks for the same job and runs one of them. On a Claude
+Code with function hooks, the module `hooks/factsheet.ts` answers
+`classic.SessionStart` itself and the command hook below it does not run. On an
+older Claude Code, or when the module is not loaded, the command hook runs as
+before. On a Team or Enterprise account the built-in security plugin keeps
+user plugins away from `classic.*` events; to use the module there, add
+`"prependPlugins": ["factsheet@factsheet"]` to `~/.claude/settings.json`.
+Either way the memory is injected once.
+
 ### cargo
 
 Requires a Rust toolchain.

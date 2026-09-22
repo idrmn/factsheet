@@ -1,5 +1,5 @@
 {
-  "description": "Downloads the factsheet binary for this platform once, then prints the project memory at session start.",
+  "description": "Prints the project memory at session start: the hooks module when function hooks are on, else the command hook. The binary is downloaded once by session-start.sh.",
   "hooks": {
     "SessionStart": [
       {
@@ -12,5 +12,8 @@
         ]
       }
     ]
-  }
+  },
+  "modules": [
+    "./factsheet.ts"
+  ]
 }
