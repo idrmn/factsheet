@@ -38,8 +38,9 @@ look for the plugin hook and its error.
 
 The plugin carries two hooks for the same job and runs one of them. On a Claude
 Code with function hooks, the module `hooks/factsheet.ts` answers
-`classic.SessionStart` itself and the command hook below it does not run. On an
-older Claude Code, or when the module is not loaded, the command hook runs as
+`classic.SessionStart` itself and the command hook below it does not run. To
+turn function hooks on, set `"CLAUDE_CODE_ENABLE_FUNCTION_HOOKS": "1"` in `env`
+of `~/.claude/settings.json`. On an older Claude Code, or when the module is not loaded, the command hook runs as
 before. On a Team or Enterprise account the built-in security plugin keeps
 user plugins away from `classic.*` events; to use the module there, add
 `"prependPlugins": ["factsheet@factsheet"]` to `~/.claude/settings.json`.
